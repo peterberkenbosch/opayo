@@ -1,6 +1,9 @@
-require "opayo/version"
+require "json"
+require "net/https"
 
 module Opayo
-  class Error < StandardError; end
-  # Your code goes here...
 end
+
+require "opayo/version"
+require "opayo/configuration"
+require "opayo/client"
