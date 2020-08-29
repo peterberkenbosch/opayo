@@ -1,0 +1,13 @@
+source "https://rubygems.org"
+
+# Specify your gem's dependencies in opayo.gemspec
+gemspec
+
+gem "rake", "~> 13.0"
+gem "rspec", "~> 3.0"
+gem "webmock", "~> 3.8"
+gem "pry"
+gem "standard"
+gem "simplecov", require: false, group: :test
+
+gem "gem-release"
