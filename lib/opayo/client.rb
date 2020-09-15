@@ -11,17 +11,30 @@ module Opayo
       @version_strings.join(" ")
     end
 
+    # The MSK (merchant session key)
+    # 
+    # The Merchant Session Key expires after 400 seconds and can only be used to create
+    # one successful Card Identifier (tokenised card details). 
+    # It will also expire and be removed after 3 failed attempts to create a Card Identifier.
+    #
+    # @return <Response> the payload on a succesfull response will <Struct::MerchantSessionKey>
+    def merchant_session_key
+      http_call(:post, "merchant-session-keys", Opayo::Struct::MerchantSessionKey, nil, { "vendorName" => Opayo.config.vendor_name })
+    end
+    
+
     # Executes a request, validates and returns the response.
     #
     # @param  [String] http_method The HTTP method (:get, :post)
     # @param  [String] api_method The api method to call
+    # @param  [Class] payload_struct_class The payload struct class for successfull request
     # @param  [String] id the optional id to be pasted in
-    # @param  [Hash] an optional body to post to the endpoint
+    # @param  [Hash] body an optional body to post to the endpoint
     # @return [Hash]
     # @raise  [RequestError]
     # @raise  [NotFoundError]
     # @raise  [AuthenticationFailed]
-    def http_call(http_method, api_method, id = nil, body = {})
+    def http_call(http_method, api_method, payload_struct_class, id = nil, body = {})
       version = "v1"
 
       path = "/api/#{version}/#{api_method}/#{id}".chomp("/")
@@ -55,24 +68,8 @@ module Opayo
         Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError => e
         raise RequestError, e.message
       end
-
-      http_code = response.code.to_i
-      case http_code
-      when 200, 201
-        JSON.parse(response.body)
-      when 400, 403
-        # 400 - Bad request
-        raise RequestError, response
-      when 401
-        # 401 - Unauthorized
-        raise AuthenticationError, response
-      when 404
-        # 404 - Not found
-        raise NotFoundError, response
-      when 500, 502, 503, 504
-        # 500, 502, 503, 504 - Server Errors
-        raise Error, response
-      end
+      
+      Response.new(response, payload_struct_class)
     end
 
     private

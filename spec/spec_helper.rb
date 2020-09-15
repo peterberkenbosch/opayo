@@ -19,12 +19,15 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.before(:suite) do
+    # Public sandbox credentials
+    Opayo.configure do |config|
+      config.integration_key = "hJYxsw7HLbj40cB8udES8CDRFLhuJ8G54O6rDpUXvE6hYDrria"
+      config.integration_password = "o2iHSrFybYMZpmWOQMuhsXP52V4fBtpuSDshrKDSWsBY1OiN6hwd9Kb12z4j5Us5u"
+      config.vendor_name = "sandbox"
+      config.environment = :test
+    end
+  end
 end
 
-# Public sandbox credentials
-Opayo.configure do |config|
-  config.integration_key = "hJYxsw7HLbj40cB8udES8CDRFLhuJ8G54O6rDpUXvE6hYDrria"
-  config.integration_password = "o2iHSrFybYMZpmWOQMuhsXP52V4fBtpuSDshrKDSWsBY1OiN6hwd9Kb12z4j5Us5u"
-  config.vendor_name = "sandbox"
-  config.environment = :test
-end

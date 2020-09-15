@@ -1,0 +1,15 @@
+HTTP/1.1 201 Created
+Connection: keep-alive
+Content-Length: 1200
+Content-Type: application/json
+Date: Tue, 15 Sep 2020 11:28:58 GMT
+Set-Cookie: AWSALB=pBY5kkp8m0IpTzjos8fG5r77LJtkhvwNqsWl8fEq586/AZoUu1YHNlKJAnNcWvnFTH5A3R7Wd7/mHefRVDZO7eAjg+1j10oONjGHNZ4O0EjectMI+0DQ4v+SIGU1; Expires=Tue, 22 Sep 2020 11:28:58 GMT; Path=/
+Set-Cookie: AWSALBCORS=pBY5kkp8m0IpTzjos8fG5r77LJtkhvwNqsWl8fEq586/AZoUu1YHNlKJAnNcWvnFTH5A3R7Wd7/mHefRVDZO7eAjg+1j10oONjGHNZ4O0EjectMI+0DQ4v+SIGU1; Expires=Tue, 22 Sep 2020 11:28:58 GMT; Path=/; SameSite=None; Secure
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Request-Tracker: 44422658-CE89-4E08-B660-23AF8429221E
+x-envoy-upstream-service-time: 17
+
+{
+    "expiry": "2020-09-15T12:35:38.945+01:00",
+    "merchantSessionKey": "80AA3065-E94B-4E72-ACDA-26E8511FA8C8"
+}
