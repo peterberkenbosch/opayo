@@ -12,6 +12,7 @@ module Opayo
       else
         @success = false
         @error = http_response
+        @payload = build_payload(JSON.parse(http_response.body), Opayo::Struct::Error)
       end
     end
 

@@ -50,10 +50,10 @@ RSpec.describe Opayo::Client do
           .with(basic_auth: stub_basic_auth)
           .to_return(status: 500, body: "{}", headers: {})
 
-          response = subject.http_call(:get, :method, Opayo::Struct::Base)
-          expect(stub).to have_been_requested
-          expect(response).not_to be_success
-          expect(response.http_code).to eql 500
+        response = subject.http_call(:get, :method, Opayo::Struct::Base)
+        expect(stub).to have_been_requested
+        expect(response).not_to be_success
+        expect(response.http_code).to eql 500
       end
     end
   end

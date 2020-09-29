@@ -12,16 +12,30 @@ module Opayo
     end
 
     # The MSK (merchant session key)
-    # 
+    #
     # The Merchant Session Key expires after 400 seconds and can only be used to create
-    # one successful Card Identifier (tokenised card details). 
+    # one successful Card Identifier (tokenised card details).
     # It will also expire and be removed after 3 failed attempts to create a Card Identifier.
     #
     # @return <Response> the payload on a succesfull response will <Struct::MerchantSessionKey>
     def merchant_session_key
-      http_call(:post, "merchant-session-keys", Opayo::Struct::MerchantSessionKey, nil, { "vendorName" => Opayo.config.vendor_name })
+      http_call(:post, "merchant-session-keys", Opayo::Struct::MerchantSessionKey, nil, {"vendorName" => Opayo.config.vendor_name})
     end
-    
+
+    # Create a card identifier
+    #
+    # @see https://developer.sage.com/api/payments/api/#operation/createCi
+    def create_card_identifier(merchant_session_key, cardholder_name, card_number, expiry_date, security_code)
+      payload = {
+        "cardDetails" => {
+          "cardholderName" => cardholder_name,
+          "cardNumber" => card_number,
+          "expiryDate" => expiry_date,
+          "securityCode" => security_code
+        }
+      }
+      http_call(:post, "card-identifiers", Opayo::Struct::CardIdentifier, nil, payload, merchant_session_key)
+    end
 
     # Executes a request, validates and returns the response.
     #
@@ -34,7 +48,7 @@ module Opayo
     # @raise  [RequestError]
     # @raise  [NotFoundError]
     # @raise  [AuthenticationFailed]
-    def http_call(http_method, api_method, payload_struct_class, id = nil, body = {})
+    def http_call(http_method, api_method, payload_struct_class, id = nil, body = {}, merchant_session_key = nil)
       version = "v1"
 
       path = "/api/#{version}/#{api_method}/#{id}".chomp("/")
@@ -56,8 +70,8 @@ module Opayo
         raise RequestError, "Invalid HTTP Method: #{http_method.to_s.upcase}"
       end
 
-      request.basic_auth Opayo.config.integration_key, Opayo.config.integration_password
-
+      request.basic_auth Opayo.config.integration_key, Opayo.config.integration_password unless merchant_session_key
+      request["Authentication"] = "Bearer #{merchant_session_key}" if merchant_session_key
       request["Accept"] = "application/json"
       request["Content-Type"] = "application/json"
       request["User-Agent"] = user_agent_string
@@ -68,7 +82,7 @@ module Opayo
         Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError => e
         raise RequestError, e.message
       end
-      
+
       Response.new(response, payload_struct_class)
     end
 
