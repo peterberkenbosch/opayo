@@ -1,0 +1,12 @@
+HTTP/1.1 201 Created
+Date: Mon, 21 Sep 2020 11:55:59 GMT
+Content-Type: application/json
+Content-Length: 116
+Connection: close
+x-envoy-upstream-service-time: 62
+Set-Cookie: AWSALB=LA9wi250PaIgh1VAbfChDE9WTVSn7xTXyeqh9jtf10HCTP8UBqRG5jtGOt7bToOlZDvIPPvQpHAb+XQND4rZn16qig5VGdHEpCUQv3xTnyfyNwx3rNZV/X4psImS; Expires=Mon, 28 Sep 2020 11:55:58 GMT; Path=/
+Set-Cookie: AWSALBCORS=LA9wi250PaIgh1VAbfChDE9WTVSn7xTXyeqh9jtf10HCTP8UBqRG5jtGOt7bToOlZDvIPPvQpHAb+XQND4rZn16qig5VGdHEpCUQv3xTnyfyNwx3rNZV/X4psImS; Expires=Mon, 28 Sep 2020 11:55:58 GMT; Path=/; SameSite=None; Secure
+X-Request-Tracker: 8E29023C-FD54-40EA-8634-B844DCCA5022
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+{"cardIdentifier":"29D04630-575C-43C3-9FC4-259E86A8D089","expiry":"2020-09-21T13:02:57.050+01:00","cardType":"Visa"}

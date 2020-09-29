@@ -1,0 +1,15 @@
+HTTP/1.1 401 Unauthorized
+Connection: keep-alive
+Content-Length: 1024
+Content-Type: application/json
+Date: Mon, 21 Sep 2020 11:40:25 GMT
+Set-Cookie: AWSALB=CRSDghZKINe/iUfeXh3m4H97MGqDFWk5gOqp6TgYoiPBymzdIy8KBznPGevvhXpLy1/X8BzWzfZmNwVWin7/H8IBvCdBjXTvyuRrkEebXRSw0LbzKC2AqWsHCEss; Expires=Mon, 28 Sep 2020 11:40:25 GMT; Path=/
+Set-Cookie: AWSALBCORS=CRSDghZKINe/iUfeXh3m4H97MGqDFWk5gOqp6TgYoiPBymzdIy8KBznPGevvhXpLy1/X8BzWzfZmNwVWin7/H8IBvCdBjXTvyuRrkEebXRSw0LbzKC2AqWsHCEss; Expires=Mon, 28 Sep 2020 11:40:25 GMT; Path=/; SameSite=None; Secure
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Request-Tracker: F045543D-11FF-41D1-A593-39177D1AF863
+x-envoy-upstream-service-time: 1
+
+{
+    "code": 1001,
+    "description": "validation.cts.credentials.NotEmpty"
+}
