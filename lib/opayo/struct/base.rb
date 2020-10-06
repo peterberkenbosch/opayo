@@ -14,3 +14,4 @@ end
 require_relative "merchant_session_key"
 require_relative "card_identifier"
 require_relative "error"
+require_relative "transaction"

@@ -1,0 +1,12 @@
+HTTP/1.1 422 Unprocessable Entity
+Date: Tue, 06 Oct 2020 12:24:13 GMT
+Content-Type: application/json
+Content-Length: 77
+Connection: close
+x-envoy-upstream-service-time: 34
+Set-Cookie: AWSALB=XzH8QBwmNGaH1b3UEU1/VijsQBLjiDHVhSe04WPhpmoT+xQ49emytJSYdSFxZd0+zv1G8QJklTNstJhWUS54sxaHIk+B/hl+kVVLxvrdKgeM0Ko8SF5PiIMUukbg; Expires=Tue, 13 Oct 2020 12:24:13 GMT; Path=/
+Set-Cookie: AWSALBCORS=XzH8QBwmNGaH1b3UEU1/VijsQBLjiDHVhSe04WPhpmoT+xQ49emytJSYdSFxZd0+zv1G8QJklTNstJhWUS54sxaHIk+B/hl+kVVLxvrdKgeM0Ko8SF5PiIMUukbg; Expires=Tue, 13 Oct 2020 12:24:13 GMT; Path=/; SameSite=None; Secure
+X-Request-Tracker: DD7879F4-C5A2-40D0-ACFF-359C66EC856A
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+{"description":"Merchant session key or card identifier invalid","code":1011}
