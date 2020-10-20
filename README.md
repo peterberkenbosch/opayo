@@ -22,7 +22,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The library needs to be configured with your opayo integration_key, integration_password, vendor_name, environment (live/test)
+
+```ruby
+Opayo.configure do |config|
+  config.integration_key = "abc"
+  config.integration_password = "xyz"
+  config.vendor_name = "pbctest"
+  config.environment = :test
+end
+```
+
+
+
+
 
 ## Development
 
