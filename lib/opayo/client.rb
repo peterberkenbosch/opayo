@@ -37,6 +37,20 @@ module Opayo
       http_call(:post, "card-identifiers", Opayo::Struct::CardIdentifier, nil, payload, merchant_session_key)
     end
 
+    # Create a payment transaction that is 'deferred'
+    # so we can capture ('release') later when the order is completed or is ready to be shipped.
+    # @see https://developer.sage.com/api/payments/api/#operation/createTransaction
+    def authorize(merchant_session_key, card_identifier, payload)
+      payload["transactionType"] = "Deferred"
+      payload["paymentMethod"] = {
+        "card" => {
+          "merchantSessionKey" => merchant_session_key,
+          "cardIdentifier" => card_identifier
+        }
+      }
+      http_call(:post, "transactions", Opayo::Struct::Transaction, nil, payload)
+    end
+
     # Executes a request, validates and returns the response.
     #
     # @param  [String] http_method The HTTP method (:get, :post)
@@ -71,7 +85,7 @@ module Opayo
       end
 
       request.basic_auth Opayo.config.integration_key, Opayo.config.integration_password unless merchant_session_key
-      request["Authentication"] = "Bearer #{merchant_session_key}" if merchant_session_key
+      request["Authorization"] = "Bearer #{merchant_session_key}" if merchant_session_key
       request["Accept"] = "application/json"
       request["Content-Type"] = "application/json"
       request["User-Agent"] = user_agent_string

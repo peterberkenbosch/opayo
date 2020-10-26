@@ -3,7 +3,7 @@ require "spec_helper"
 RSpec.describe Opayo::Client, ".create_card_identifier" do
   let(:payload) { read_json_fixture("card_identifier.json") }
   let(:merchant_session_key) { "BDD9C0F1-F860-4D02-BF35-2A9FFC1E0A87" }
-  let(:headers) { stub_headers.merge("Authentication" => "Bearer #{merchant_session_key}") }
+  let(:headers) { stub_headers.merge("Authorization" => "Bearer #{merchant_session_key}") }
 
   before do # TODO figure out why this is needed when running the full suite, spec_helper before config does not works?
     Opayo.configure do |config|

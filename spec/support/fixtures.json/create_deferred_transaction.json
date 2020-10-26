@@ -1,0 +1,21 @@
+{
+  "transactionType": "Deferred",
+  "paymentMethod": {
+    "card": {
+      "merchantSessionKey": "7BACF889-B656-4DA4-83AF-637361D64928",
+      "cardIdentifier": "6DCF9907-87E0-4728-86AE-292CF77FB026"
+    }
+  },
+  "vendorTxCode": "R1234567",
+  "amount": 1000,
+  "currency": "GBP",
+  "description": "Demo transaction",
+  "customerFirstName": "Harry",
+  "customerLastName": "Potter",
+  "billingAddress": {
+    "address1": "407 St. John Street",
+    "city": "London",
+    "postalCode": "EC1V 4AB",
+    "country": "GB"
+  }
+}

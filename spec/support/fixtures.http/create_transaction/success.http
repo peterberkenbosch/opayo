@@ -1,0 +1,12 @@
+HTTP/1.1 201 Created
+Date: Tue, 06 Oct 2020 12:34:11 GMT
+Content-Type: application/json
+Content-Length: 678
+Connection: close
+x-envoy-upstream-service-time: 1062
+Set-Cookie: AWSALB=KvK6OmnkLpPjRyh85Y0sjtr30p/tPdHoWOTqFhjpoanajcn0JdQ08LzFh3vAAjRqfBWGcBXvf1zJcCqtHyh+9FFL/5J0LZ2yfJaXnxzdDhidfrCp8buSUKsOlnxv; Expires=Tue, 13 Oct 2020 12:34:10 GMT; Path=/
+Set-Cookie: AWSALBCORS=KvK6OmnkLpPjRyh85Y0sjtr30p/tPdHoWOTqFhjpoanajcn0JdQ08LzFh3vAAjRqfBWGcBXvf1zJcCqtHyh+9FFL/5J0LZ2yfJaXnxzdDhidfrCp8buSUKsOlnxv; Expires=Tue, 13 Oct 2020 12:34:10 GMT; Path=/; SameSite=None; Secure
+X-Request-Tracker: 2959B258-16FF-42F8-BCBF-D224834D8588
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+{"statusCode":"0000","statusDetail":"The Authorisation was Successful.","transactionId":"31B6D72B-855E-902C-6A1B-DCD4435F859B","transactionType":"Deferred","retrievalReference":7470134,"bankResponseCode":"00","bankAuthorisationCode":"999777","paymentMethod":{"card":{"cardType":"Visa","lastFourDigits":"5559","expiryDate":"1122","cardIdentifier":"6DCF9907-87E0-4728-86AE-292CF77FB026","reusable":false}},"amount":{"totalAmount":1000,"saleAmount":1000,"surchargeAmount":0},"currency":"GBP","fiRecipient":{},"status":"Ok","avsCvcCheck":{"status":"NotChecked","address":"NotProvided","postalCode":"NotProvided","securityCode":"NotProvided"},"3DSecure":{"status":"CardNotEnrolled"}}
